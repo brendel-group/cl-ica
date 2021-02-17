@@ -1,0 +1,23 @@
+# To build this Dockerfile you have to let it inherit from the other one
+
+# Set the time zone correctly
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+ENV SHELL /bin/bash
+
+RUN wget https://download.blender.org/release/Blender2.91/blender-2.91.0-linux64.tar.xz
+RUN tar -xf blender-2.91.0-linux64.tar.xz -C /usr/local/bin/
+ENV PATH "$PATH:/usr/local/bin/blender-2.91.0-linux64"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+         libxxf86vm1 libxfixes-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev \
+         && apt-get clean \
+         && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod a+x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+CMD ["/bin/bash"]
