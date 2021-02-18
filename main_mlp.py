@@ -20,7 +20,7 @@ else:
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        "Disentanglement with InfoNCE/Contrastive Learning - Toy Examples"
+        description="Disentanglement with InfoNCE/Contrastive Learning - MLP Mixing"
     )
     parser.add_argument("--sphere-r", type=float, default=1.0)
     parser.add_argument(

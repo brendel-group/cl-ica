@@ -24,7 +24,9 @@ from infinite_iterator import InfiniteIterator
 # color only means object color, background color and spot light color -> 2*n_objects+1 dim
 # rotation ony means object rotation and spotlight rotation in euler angles -> 7*n_objects dim
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(
+    description="Disentanglement with InfoNCE/Contrastive Learning - 3DIdent"
+)
 parser.add_argument("--batch-size", default=512, type=int)
 parser.add_argument("--n-eval-samples", default=4096, type=int)
 parser.add_argument("--lr", default=1e-4, type=float)
