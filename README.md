@@ -17,7 +17,7 @@ If you find our analysis helpful, please cite our pre-print:
     Contrastive Learning Inverts the Data Generating Process
   },
   journal = {CoRR},
-  volume = {abs/XXXX.XXXXX},
+  volume = {abs/2102.08850},
   year = {2021},
 }
 ```
