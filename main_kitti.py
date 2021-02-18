@@ -97,7 +97,9 @@ def loguniform(low, high):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="slowVAE")
+    parser = argparse.ArgumentParser(
+        description="Disentanglement with InfoNCE/Contrastive Learning - KITTI Masks"
+    )
     parser.add_argument("--box-norm", type=int, default=0)
     parser.add_argument("--p", type=int, default=1)
     parser.add_argument("--experiment-dir", type=str, default="", help="specify path")
