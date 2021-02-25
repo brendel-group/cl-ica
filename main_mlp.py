@@ -294,7 +294,7 @@ def main():
         output_normalization = None
         if args.box_norm:
             output_normalization = "learnable_box"
-        if args.sphere_norm:
+        elif args.sphere_norm:
             output_normalization = "learnable_sphere"
         else:
             if args.p == 0:
