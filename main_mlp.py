@@ -62,12 +62,6 @@ def parse_args():
         default=10,
         help="Number of batches to average evaluation performance at the end.",
     )
-    parser.add_argument(
-        "--rej-mult",
-        type=float,
-        default=1,
-        help="Memory/CPU trade-off factor for rejection resampling.",
-    )
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument(
         "--act-fct",
@@ -191,8 +185,7 @@ def main():
     else:
         sample_conditional = (
             lambda space, z, size, device=device: space.von_mises_fisher(
-                z, args.c_param, size, device, rejection_multiplier=args.rej_mult
-            )
+                z, args.c_param, size, device)
         )
     latent_space = latent_spaces.LatentSpace(
         space=space,
