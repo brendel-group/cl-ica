@@ -1,4 +1,4 @@
-# Contrastive Learning Inverts the Data Generating Process
+# Contrastive Learning Inverts the Data Generating Process [ICML 2021]
 Official code to reproduce the results and data presented in the paper [Contrastive Learning Inverts the Data Generating Process](https://brendel-group.github.io/cl-ica/).
 
 <p align="center">
@@ -187,13 +187,13 @@ optional arguments:
   --encoder {rn18,rn50,rn101,rn151}
 ```
 
-## 3DIdent Dataset
-We introduce 3Dident, a dataset with hallmarks of natural environments (shadows, different lighting conditions, 3D rotations, etc.). A preliminary version of the dataset is released along with our pre-print. 
+# 3DIdent Dataset
+We introduce *3DIdent*, a dataset with hallmarks of natural environments (shadows, different lighting conditions, 3D rotations, etc.).
 <p align="center">
   <img src="https://brendel-group.github.io/cl-ica/img/3ddis.svg" alt="3DIdent dataset example images" />
 </p>
 
-You can access the dataset [here](https://1drv.ms/u/s!ApshaNzdDzMXzId7hco88oEgF3MB7g?e=3puQa7). The training and test datasets consists of 250000 and 25000 samples, respectively. To load, you can use the `ThreeDIdentDataset` class defined in [datasets/threedident_dataset.py](datasets/threedident_dataset.py).
+You can access the full dataset [here](https://zenodo.org/record/4502485). The training and test datasets consists of 250000 and 25000 samples, respectively. To load, you can use the `ThreeDIdentDataset` class defined in [datasets/threedident_dataset.py](datasets/threedident_dataset.py).
 
 ## BibTeX
 If you find our analysis helpful, please cite our pre-print:
