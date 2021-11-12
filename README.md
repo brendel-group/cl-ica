@@ -208,10 +208,16 @@ If you find our analysis helpful, please cite our pre-print:
     Brendel, Wieland
   },
   title = {
-    Contrastive Learning Inverts the Data Generating Process
+    Contrastive Learning Inverts
+    the Data Generating Process
   },
-  journal = {CoRR},
-  volume = {abs/2102.08850},
+  booktitle = {Proceedings of the 38th International Conference on Machine Learning,
+    {ICML} 2021, 18-24 July 2021, Virtual Event},
+  series = {Proceedings of Machine Learning Research},
+  volume = {139},
+  pages = {12979--12990},
+  publisher = {{PMLR}},
   year = {2021},
+  url = {http://proceedings.mlr.press/v139/zimmermann21a.html},
 }
 ```
