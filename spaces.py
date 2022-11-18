@@ -130,12 +130,13 @@ class NSphereSpace(Space):
     @property
     def dim(self):
         return self.n
+    
+    def normalize(self, x):
+        return x / torch.sqrt(torch.sum(x ** 2, dim=-1, keepdim=True)) * self.r
 
     def uniform(self, size, device="cpu"):
         x = torch.randn((size, self.n), device=device)
-        x /= torch.sqrt(torch.sum(x ** 2, dim=-1, keepdim=True))
-
-        return x
+        return self.normalize(x)
 
     def normal(self, mean, std, size, device="cpu"):
         """Sample from a Normal distribution in R^N and then project back on the sphere.
@@ -165,9 +166,7 @@ class NSphereSpace(Space):
 
         result = torch.randn((size, self.n), device=device) * std + mean
         # project back on sphere
-        result /= torch.sqrt(torch.sum(result ** 2, dim=-1, keepdim=True))
-
-        return result
+        return self.normalize(result)
 
     def laplace(self, mean, lbd, size, device="cpu"):
         """Sample from a Laplace distribution in R^N and then project back on the sphere.
@@ -194,9 +193,7 @@ class NSphereSpace(Space):
 
         result = NRealSpace(self.n).laplace(mean, lbd, size, device)
         # project back on sphere
-        result /= torch.sqrt(torch.sum(result ** 2, dim=-1, keepdim=True))
-
-        return result
+        return self.normalize(result)
 
     def generalized_normal(self, mean, lbd, p, size, device="cpu"):
         """Sample from a Generalized Normal distribution in R^N and then project back on the sphere.
@@ -226,9 +223,7 @@ class NSphereSpace(Space):
             mean=mean, lbd=lbd, p=p, size=size, device=device
         )
         # project back on sphere
-        result /= torch.sqrt(torch.sum(result ** 2, dim=-1, keepdim=True))
-
-        return result
+        return self.normalize(result)
 
     def von_mises_fisher(self, mean, kappa, size, device="cpu"):
         """Sample from a von Mises-Fisher distribution (=Normal distribution on a hypersphere).
